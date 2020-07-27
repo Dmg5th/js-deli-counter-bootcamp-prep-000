@@ -1,23 +1,57 @@
-var katzDeliLine = [];
-
-function takeANumber(katzDeliLine, name){
-  katzDeliLine.push(name);
-  return `Welcome, ${name}. You are number ${katzDeliLine.length} in line.`
+function takeANumber(line, name){
+  line.push(name);
+  return `Welcome, ${name}. You are number ${line.length} in line.`
 }
-function nowServing(katzDeliLine) {
-  if (katzDeliLine.length > 0) {
-    return "Currently serving " + katzDeliLine.shift() + ".";
+
+function nowServing(line){
+  if(line.length === 0){
+    return "There is nobody waiting to be served!"
   } else {
-      return "There is nobody waiting to be served!";
+    return `Currently serving ${line.shift()}.`;
   }
 }
-function currentLine(katzDeliLine){
-    if (katzDeliLine.length === 0){ return "The line is currently empty."; }
-    else {
-    	return katzDeliLine.reduce(function(acc,val,index){
-	    let placeName = `${index+1}. ${val}`;
-	    if (index < katzDeliLine.length - 1){ return acc + placeName + ', '; }
-	    else { return acc + placeName; }
-	}, "The line is currently: ");
-    }
+
+function currentLine(line){
+  if(line.length === 0){
+    return "The line is currently empty."
+  }
+  let newLine = [];
+  let message = "The line is currently: ";
+  for(let x = 0; x < line.length; x++){
+    newLine.push(`${x + 1}. ${line[x]}`)
+  }
+  newLine = newLine.join(', ')
+  return message + newLine
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
